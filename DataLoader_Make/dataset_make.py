@@ -145,7 +145,7 @@ class ToTensor(object):
 
         # 交换轴，因为 numpy 图片：H x W x C, torch输入图片要求： C x H x W
         image = image.transpose((2, 0, 1))
-        return {'image': torch.from_numpy(image), 'label': label}
+        return {'image': torch.from_numpy(image), 'label': torch.FloatTensor([label])}
 
 
 def t_dataloader():
